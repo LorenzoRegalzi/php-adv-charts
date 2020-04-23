@@ -3,7 +3,6 @@
 
     header('Content-Type: application/json');
 
-    echo $fatturato= json_encode($graphs['fatturato']);
-    
+    echo $agente= json_encode($graphs['fatturato_by_agent']);
 
  ?>

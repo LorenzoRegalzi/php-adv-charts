@@ -12,36 +12,27 @@
 
 
 
-
-
-
-
-
         <div class="grafico">
             <canvas id="line-Chart"></canvas>
         </div>
-        <script>
+        <div class="grafico">
+            <canvas id="pie-Chart"></canvas>
+        </div>
 
-            $(document).ready(function (){
 
-                <?php include  'database.php';?>
-                var dati= <?php echo $database; ?>;
-                var mese = <?php echo $mesij; ?>;
 
-                var ctx = $('#line-Chart');
-                var chart = new Chart(ctx, {
-                    type: 'line',
-                    data: {
-                        labels: mese,
-                        datasets: [{
-                            label: 'My First dataset',
-                            backgroundColor: 'rgb(255, 99, 132)',
-                            borderColor: 'rgb(255, 99, 132)',
-                            data: dati
-                        }]
-                    },
-                });
-            });
-        </script>
+
+
+
+
+
+
+
+
+
+
+
+
+        <script src="js/main.js" charset="utf-8"></script>
     </body>
 </html>
