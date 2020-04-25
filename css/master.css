@@ -3,6 +3,14 @@
     padding: 0;
     box-sizing: border-box;
 }
+body{
+    display: flex;
+    justify-content: center;
+}
 .grafico{
-    width: 30%;
+    width: 50%;
+}
+.pie{
+    position: relative;
+    margin-top: 15%
 }

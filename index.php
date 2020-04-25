@@ -11,25 +11,29 @@
 
 
 
-
-        <div class="grafico">
-            <canvas id="line-Chart"></canvas>
-        </div>
-        <div class="grafico">
-            <canvas id="pie-Chart"></canvas>
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-
+        <?php include 'database.php' ?>
+        <?php if ($controllo == $graphs['fatturato']['access']) { ?>
+            <div class="grafico">
+                <canvas id="line-Chart"></canvas>
+            </div>
+        <?php } else if ($controllo == $graphs['fatturato_by_agent']['access']) { ?>
+            <div class="grafico">
+                <canvas id="line-Chart"></canvas>
+            </div>
+            <div class="grafico pie">
+                <canvas id="pie-Chart"></canvas>
+            </div>
+        <?php } else if ($controllo == $graphs['team_efficiency']['access']) { ?>
+            <div class="grafico">
+                <canvas id="line-Chart"></canvas>
+            </div>
+            <div class="grafico pie">
+                <canvas id="pie-Chart"></canvas>
+            </div>
+            <div class="grafico">
+                <canvas id="thirdline-Chart"></canvas>
+            </div>
+        <?php }?>
 
 
 

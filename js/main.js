@@ -4,7 +4,7 @@ $(document).ready(function (){
         url: 'server.php',
         method: 'GET',
         success: function (data) {
-            console.log(data);
+            // console.log(data.data);
             var mese = ['gennaio','febbraio','marzo','aprile','maggio','giugno','luglio','agosto','settembre','ottobre','novembre','dicembre'];
             var ctx = $('#line-Chart');
             var chart = new Chart(ctx, {
@@ -12,7 +12,7 @@ $(document).ready(function (){
                 data: {
                     labels: mese,
                     datasets: [{
-                        label: 'My First dataset',
+                        label: 'Andamento vendite annuale',
                         backgroundColor: 'rgb(255, 99, 132)',
                         borderColor: 'rgb(255, 99, 132)',
                         data: data.data
@@ -25,6 +25,7 @@ $(document).ready(function (){
         }
 
     });
+
     $.ajax({
         url: 'serversecond.php',
         method: 'GET',
@@ -33,8 +34,8 @@ $(document).ready(function (){
             var nomi=[];
             var dati=[];
             for (var key in array) {
-                console.log(key);
-                console.log(array[key]);
+                // console.log(key);
+                // console.log(array[key]);
                 nomi.push(key);
                 dati.push(array[key]);
             }
@@ -57,4 +58,40 @@ $(document).ready(function (){
         }
 
     });
+        $.ajax({
+            url: 'thirdserver.php',
+            method: 'GET',
+            success: function (data) {
+                console.log(data.data);
+                var mese = ['gennaio','febbraio','marzo','aprile','maggio','giugno','luglio','agosto','settembre','ottobre','novembre','dicembre'];
+                var dati = data.data;
+                var ctx = $('#thirdline-Chart');
+                var chart = new Chart(ctx, {
+                    type: data.type,
+                    data: {
+                        labels: mese,
+                        datasets: [{
+                            label: 'Team 1',
+                            borderColor: 'green',
+                            data: dati.Team1
+                        },
+                        {
+                            label: 'Team 2',
+                            borderColor: 'blue',
+                            data: dati.Team2
+                        },
+                        {
+                            label: 'Team 3',
+                            borderColor: 'red',
+                            data: dati.Team3
+                        }]
+                    },
+                });
+            },
+            error: function(){
+                alert('errore di comunicazione')
+            }
+
+        });
+
 });
